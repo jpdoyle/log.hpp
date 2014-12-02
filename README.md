@@ -19,12 +19,12 @@ example).
         logger log2;
 
         log(logger::INFO,"You can specify the log level as a parameter,\n");
-        log.warning("Or use a specialized function.\n");
-        log.errorln("logger::<level>ln() automatically adds that pesky \\n.");
+        log.w("Or use a specialized function.\n");
+        log.e("logger::<level>ln() automatically adds that pesky \\n.");
 
-        log.infoln ("All ",8," functions can output anything that has an")
-           .infoln ("operator<< overload, and you can chain functions,")
-           .debugln("even of different levels.");
+        log.i("All ",4," functions can output anything that has an")
+           .i("operator<< overload, and you can chain functions,")
+           .d("even of different levels.");
         return 0;
     }
 

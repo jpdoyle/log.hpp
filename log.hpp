@@ -52,7 +52,7 @@ public:
                                    + "> [WARNING] " :
               /*level == ERROR  */ std::string(_color ? "\e[31m" : "")
                                    + " [ERROR] ";
-            _log(prefix,args...);
+            _log(prefix,args...,"\n");
             if(_color) {
                 _log("\e[37m");
             }
@@ -61,36 +61,20 @@ public:
         return *this;
     }
     template <class... Ts>
-    basic_logger& debug(Ts... args) {
+    basic_logger& d(Ts... args) {
         return operator()(DEBUG,args...);
     }
     template <class... Ts>
-    basic_logger& debugln(Ts... args) {
-        return debug(args...,"\n");
-    }
-    template <class... Ts>
-    basic_logger& info(Ts... args) {
+    basic_logger& i(Ts... args) {
         return operator()(INFO,args...);
     }
     template <class... Ts>
-    basic_logger& infoln(Ts... args) {
-        return info(args...,"\n");
-    }
-    template <class... Ts>
-    basic_logger& warning(Ts... args) {
+    basic_logger& w(Ts... args) {
         return operator()(WARNING,args...);
     }
     template <class... Ts>
-    basic_logger& warningln(Ts... args) {
-        return warning(args...,"\n");
-    }
-    template <class... Ts>
-    basic_logger& error(Ts... args) {
+    basic_logger& e(Ts... args) {
         return operator()(ERROR,args...);
-    }
-    template <class... Ts>
-    basic_logger& errorln(Ts... args) {
-        return error(args...,"\n");
     }
 };
 

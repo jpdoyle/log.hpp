@@ -9,10 +9,10 @@ int main() {
     };
 
     for(auto& log:loggers) {
-        log.debugln("Doing a thing ",3," ",4.5)
-           .infoln(2,": Thing is being done")
-           .warningln("Thing was done scarily!")
-           .errorln("Thing was done badly!");
+        log.d("Doing a thing ",3," ",4.5)
+           .i(2,": Thing is being done")
+           .w("Thing was done scarily!")
+           .e("Thing was done badly!");
     }
 
     return 0;
