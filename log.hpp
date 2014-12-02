@@ -6,7 +6,7 @@
 #include <memory>
 #include <mutex>
 
-template <typename charT = char>
+template <typename ostreamT = std::ostream>
 class basic_logger {
 public:
     enum log_level {
@@ -19,7 +19,7 @@ public:
 private:
     log_level _minLevel;
     bool _color;
-    std::basic_ostream<charT>& _os;
+    ostreamT& _os;
 
     template<class T>
     void _log(const T& x) {
@@ -35,7 +35,7 @@ private:
 public:
     basic_logger(log_level minLevel = INFO,
         bool color = false,
-        std::basic_ostream<charT>& os = std::cout) :
+        ostreamT& os = std::cout) :
       _minLevel(minLevel),_color(color),_os(os) {}
 
     log_level minLevel() const {
